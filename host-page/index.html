@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  I am the host page
+  launcher
+  <iframe src="http://iframe.localhost:8081" id="my-iframe"></iframe>
+
+  <script>
+    window.addEventListener('message', (event) => {
+      if(event.data.type === 'event 1'){
+        console.log(event.data)
+      } else {
+        console.log(event.data)
+        console.log(event.data)
+      }
+    })
+  </script>
+</body>
+</html>

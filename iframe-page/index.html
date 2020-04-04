@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+  I am an iframe
+  controller
+  </div>
+  <button id="button-1">Send event 1</button>
+  <button id="button-2">Send event 2</button>
+
+  <script>
+    document.querySelector('#button-1').onclick = () => {
+      window.parent.postMessage({
+        type: 'event 1',
+        message: 'from iframe'
+      }, '*')
+    }
+
+    document.querySelector('#button-2').onclick = () => {
+      window.parent.postMessage({
+        type: 'event 2',
+        message: 'from iframe'
+      }, '*')
+    }
+
+    window.addEventListener('message', (event) => {
+      console.warn(event)
+    })
+  </script>
+</body>
+</html>
